@@ -2,7 +2,7 @@ import math
 
 
 class Shape:
-    def __init__(self,width,height):
+    def __init__(self, width, height):
         self.width = width
         self.height = height
 
@@ -26,7 +26,7 @@ class Rectangle(Shape):
 
 
 class Square(Shape):
-    def __init__(self,side):
+    def __init__(self, side):
         super().__init__(side, side)
         self.side = side
 
@@ -46,11 +46,11 @@ class Triangle(Shape):
         self.height = height
 
     def area(self):
-        area = round(0.5*(self.base * self.height))
+        area = round(0.5 * (self.base * self.height))
         print(area)
 
     def perimeter(self):
-        hyp = int(round(math.sqrt((self.base ** 2) + (self.height ** 2)),0))
+        hyp = int(round(math.sqrt((self.base ** 2) + (self.height ** 2)), 0))
         perimeter = hyp + self.base + self.height
         print(perimeter)
 
@@ -61,24 +61,50 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        area = int((math.pi * self.radius)**2)
+        area = int((math.pi * self.radius) ** 2)
         print(area)
 
 
-#class Cube(Square):
+def surface_area():
+    s_area = 5
 
 
-a = Shape(10,10)
+class Cube(Shape):
+    def __init__(self, side):
+        super().__init__(side, side)
+        self.side = side
+
+    def area(self):
+        area = self.side * self.side
+        print(area)
+        return area
+
+    def volume(self):
+        volume = self.area() * self.side
+        print(volume)
+    def surface_area(self):
+        s_a = self.area() * 6
+        print(s_a)
+
+
+
+
+b = Square(6)
+a = Shape(10, 10)
 a.area()
 a.perimeter()
-r = Rectangle(10,10)
+r = Rectangle(10, 10)
 r.area()
 r.perimeter()
 s = Square(10)
 s.area()
 s.perimeter()
-t = Triangle(10,10)
+t = Triangle(10, 10)
 t.area()
 t.perimeter()
 c = Circle(10)
 c.area()
+g = Cube(5)
+g.volume()
+
+g.surface_area()
